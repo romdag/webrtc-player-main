@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Media Server independent WebRTC player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+    />
+    <script type="module" src="./demo.ts"></script>
+    <style type="text/css">
+      #videocontainer {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+      video {
+        width: 100%;
+      }
+      input {
+        width: 70%;
+      }
+      footer {
+        font-size: 0.8em;
+        text-align: center;
+      }
+      #input {
+        display: none;
+      }
+      button {
+        margin: 4px;
+      }
+      #preroll {
+        width: 20px;
+      }
+      #stats {
+        font-size: 0.6em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      #wallclock {
+        text-align: center;
+        display: grid;
+      }
+      #clientclock {
+        text-align: center;
+        display: grid;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Media Server independent WebRTC player</h1>
+    </header>
+    <section>
+      <p>Available adapters:</p>
+      <div id="adapters"></div>
+      <div id="input">
+        <label for="channelUrl">URL</label>
+        <input id="channelUrl" type="text" value="" />
+        <button id="play">Play</button>
+        <button id="stop">Stop</button>
+        <input type="checkbox" id="preroll" />
+        <label for="preroll">Preroll</label>
+        <label for="prerollUrl">VMAP</label>
+        <input
+          id="prerollUrl"
+          type="text"
+          value="https://eyevinn.adtest.eyevinn.technology/api/v1/vmap?bp=0&dur=10"
+        />
+      </div>
+      <div id="videocontainer">
+        <video autoplay muted controls playsinline></video>
+      </div>
+      <div id="wallclock">
+        <span id="Stockholm_z72a"></span>
+        <span style="font-size: 8pt" rel="nofollow"
+          >Atomic Wall clock provided by
+          <a href="https://time.is/" id="time_is_link">time.is</a></span
+        >
+        <script src="//widget.time.is/t.js"></script>
+        <script>
+          time_is_widget.init({
+            Stockholm_z72a: {}
+          });
+        </script>
+      </div>
+      <div id="clientclock">
+        <span id="localTimeMs"></span>
+        <span style="font-size: 8pt">Client Time</span>
+      </div>
+    </section>
+    <section id="stats">
+      <span id="stats-current-rtt"></span>
+      <span id="stats-incoming-bitrate"></span>
+      <span id="stats-packetloss"></span>
+    </section>
+    <footer>
+      <p>
+        By <a href="https://www.eyevinn.se">Eyevinn Technology AB</a> and it is
+        <a href="https://github.com/Eyevinn/webrtc-player">Open Source</a>
+      </p>
+    </footer>
+  </body>
+</html>
