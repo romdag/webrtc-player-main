@@ -103,7 +103,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const playButton = document.querySelector<HTMLButtonElement>('#play');
   playButton?.addEventListener('click', async () => {
-    const channelUrl = input.value;
+    // const channelUrl = input.value;
+    const channelUrl = "https://edge02.lab39.stream/blackjack/whap";
     const vmapUrlElem = document.querySelector<HTMLInputElement>('#preroll');
     const vmapUrl =
       vmapUrlElem && vmapUrlElem.checked ? inputPrerollUrl.value : undefined;
